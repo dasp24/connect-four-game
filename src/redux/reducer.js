@@ -62,32 +62,32 @@ export function reducer(state = initialState, action) {
 
 function checkWinner (board, lastPlayed, player) {
 
-//     if (board[currentPos[0] + 3] !== undefined) {
-//       if (board[currentPos[0] + 1][currentPos[1]] === player && board[currentPos[0] + 2][currentPos[1]] === player && board[currentPos[0] + 3][currentPos[1]] === player) {
-//         return `${player} wins`;
-//       }
-//     }
+    if (board[lastPlayed[0] + 3] !== undefined) {
+      if (board[lastPlayed[0] + 1][lastPlayed[1]] === player && board[lastPlayed[0] + 2][lastPlayed[1]] === player && board[lastPlayed[0] + 3][lastPlayed[1]] === player) {
+        return `${player} wins`;
+      }
+    }
 
-//     if (board[currentPos[0]][currentPos[1] + 3] !== undefined) {
-//       if (board[currentPos[0]][currentPos[1] + 1] === player && board[currentPos[0]][currentPos[1] + 2] === player && board[currentPos[0]][currentPos[1] + 3] === player) {
-//         return `${player} wins`;
-//       }
-//     }
-//     if (board[currentPos[0]][currentPos[1] + 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
-//       if (board[currentPos[0] + 1][currentPos[1] + 1] === player && board[currentPos[0] + 2][currentPos[1] + 2] === player && board[currentPos[0] + 3][currentPos[1] + 3] === player) {
-//         return `${player} wins`;
-//       }
-//     }
-//     if (board[currentPos[0]][currentPos[1] - 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
-//       if (board[currentPos[0] + 1][currentPos[1] - 1] === player && board[currentPos[0] + 2][currentPos[1] - 2] === player && board[currentPos[0] + 3][currentPos[1] - 3] === player) {
-//         return `${player} wins`;
-//       }
-//     }
-//   }
-}
+    if (board[lastPlayed[0]][lastPlayed[1] + 3] !== undefined) {
+      if (board[lastPlayed[0]][lastPlayed[1] + 1] === player && board[lastPlayed[0]][lastPlayed[1] + 2] === player && board[lastPlayed[0]][lastPlayed[1] + 3] === player) {
+        return `${player} wins`;
+      }
+    }
+    if (board[lastPlayed[0]][lastPlayed[1] + 3] !== undefined && board[lastPlayed[0] + 3] !== undefined) {
+      if (board[lastPlayed[0] + 1][lastPlayed[1] + 1] === player && board[lastPlayed[0] + 2][lastPlayed[1] + 2] === player && board[lastPlayed[0] + 3][lastPlayed[1] + 3] === player) {
+        return `${player} wins`;
+      }
+    }
+    if (board[lastPlayed[0]][lastPlayed[1] - 3] !== undefined && board[lastPlayed[0] + 3] !== undefined) {
+      if (board[lastPlayed[0] + 1][lastPlayed[1] - 1] === player && board[lastPlayed[0] + 2][lastPlayed[1] - 2] === player && board[lastPlayed[0] + 3][lastPlayed[1] - 3] === player) {
+        return `${player} wins`;
+      }
+    }
+  }
+
 
 // function findWinner(board, pos, char) {
-//   let currentPos = pos.shift();
+//   let lastPlayed = pos.shift();
 //   while (pos.length >= 3) {
 //     if (board[currentPos[0] + 3] !== undefined) {
 //       if (board[currentPos[0] + 1][currentPos[1]] === char && board[currentPos[0] + 2][currentPos[1]] === char && board[currentPos[0] + 3][currentPos[1]] === char) {
