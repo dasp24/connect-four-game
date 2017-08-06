@@ -17,8 +17,8 @@ class Choice extends Component {
     }
      onClick(val) {
          this.props.addDisk(val);
-         this.props.changePlayer();
          this.props.checkWinner();
+         this.props.changePlayer();
      }
   render() {
     return (
@@ -40,8 +40,8 @@ class Choice extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         addDisk: (val) => dispatch(addDisk(val)),
-        changePlayer: () => dispatch(changePlayer()),
-        checkWinner: () => dispatch(checkWinner())
+        checkWinner: () => dispatch(checkWinner()),
+        changePlayer: () => dispatch(changePlayer())
     };
 }
 

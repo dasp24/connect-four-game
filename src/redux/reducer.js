@@ -21,12 +21,11 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
-
+  console.log(state)
     switch (action.type) {
         case ADD_DISK:
-            return {
-                ...state,
-                board: addDisk(state,action.column)
+             {
+               return addDisk({...state,}, action.column) 
        
         }
         case CHANGE_PLAYER:
@@ -38,7 +37,7 @@ export function reducer(state = initialState, action) {
         case CHECK_WINNER:
             return {
                 ...state,
-                won: checkWinner(state.board, state.player)
+                won: checkWinner(state.board, state.lastPlayed, state.player)
             }
        
         default:
@@ -47,31 +46,22 @@ export function reducer(state = initialState, action) {
 }
 
  function addDisk(state,col) {
-    const board = [...state.board];
+   const newState = { ...state
+    }
     let row = 5;
-      while (board[row][col] !== null) {
+      while (newState.board[row][col] !== null) {
         row--;
-        if (row < 0) return board;
+        if (row < 0) return newState.board;
       }
-      [row][col] = state.lastPlayed;
-      board[row][col] = state.player;
+      newState.lastPlayed = [row,col] 
+      newState.board[row][col] = state.player;
 
-    return board;
+    return newState;
     
 }
 
-function checkWinner (board, player) {
-    let positions = ()=>{const result = [];
-  board.forEach((line, index) => {
-    line.forEach((item, jindex) => {
-      if (item === player) result.push([index, jindex]);
-    });
-  });
-// console.log(result)
-  return result;
-    }
-// let currentPos = positions.shift();
-//   while (positions.length >= 3) {
+function checkWinner (board, lastPlayed, player) {
+
 //     if (board[currentPos[0] + 3] !== undefined) {
 //       if (board[currentPos[0] + 1][currentPos[1]] === player && board[currentPos[0] + 2][currentPos[1]] === player && board[currentPos[0] + 3][currentPos[1]] === player) {
 //         return `${player} wins`;
@@ -93,7 +83,6 @@ function checkWinner (board, player) {
 //         return `${player} wins`;
 //       }
 //     }
-//     currentPos = positions.shift();
 //   }
 }
 
