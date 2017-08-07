@@ -23,7 +23,7 @@ class Board extends Component {
     }
 
   render() {
-    return this.props.won ? <span>'A player has won!'</span> : (
+    return this.props.won ? <span>{this.props.won}</span> : (
       <div className="Board">
         {this.props.visualBoard.map((row) => (
           <div>
