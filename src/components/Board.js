@@ -7,7 +7,8 @@ const slotStyle = {
     height: `${slotDimension}px`,
     borderRadius: `${slotDimension / 2}px`,
     margin: '0 5px',
-    display: 'inline-block'
+    display: 'inline-block',
+    border: '2px solid'
 };
 
 class Board extends Component {
