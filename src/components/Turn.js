@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 class Turn extends Component {
   render() {
-    return (
-      <div className="Turn">
-          <h1>Player 1 to play</h1>
-      </div>
-    );
+        return this.props.player === 'x' ? <h3>Reds turn</h3> : <h3>Yellows turn</h3>
+    ;
   }
 }
 
-export default Turn;
+function mapStateToProps(state) {
+    return {
+        player: state.player
+    };
+
+// need some sort of function that represents a null in an array as something
+
+// another function that repesents x as green and y as blue or whatever colour
+}
+
+export default connect(mapStateToProps)(Turn);
