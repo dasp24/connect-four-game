@@ -17,7 +17,8 @@ const initialState = {
     ],
     player: 'x',
     won:false,
-    lastPlayed:null
+    xPlayer:[],
+    oPlayer:[]
 };
 
 export function reducer(state = initialState, action) {
@@ -34,11 +35,11 @@ export function reducer(state = initialState, action) {
                 player: (state.player === 'x') ? 'o' : 'x'
             }
         
-        case CHECK_WINNER:
-            return {
-                ...state,
-                won: (state.won === false) ? checkWinner(state.board, state.lastPlayed, state.player) : state.won
-            }
+        // case CHECK_WINNER:
+        //     return {
+        //         ...state,
+        //         won: (state.won === false) ? checkWinner(state.board, state.lastPlayed, state.player) : state.won
+        //     }
        
         default:
             return state;
@@ -54,38 +55,39 @@ export function reducer(state = initialState, action) {
         row--;
         if (row < 0) return newState.board;
       }
-      newState.lastPlayed = [row,col] 
+      (newState.player === 'x') ? newState.xPlayer.push([row,col]) : newState.oPlayer.push([row,col])
+
       newState.board[row][col] = state.player;
 
     return newState;
     
 }
 
-function checkWinner (board, lastPlayed, player) {
-    // down
-    if (board[lastPlayed[0] + 3] !== undefined) {
-      if (board[lastPlayed[0] + 1][lastPlayed[1]] === player && board[lastPlayed[0] + 2][lastPlayed[1]] === player && board[lastPlayed[0] + 3][lastPlayed[1]] === player) {
-        return `${player} wins`;
-      }
-    }
-    // right
-    if (board[lastPlayed[0]][lastPlayed[1] + 3] !== undefined) {
-      if (board[lastPlayed[0]][lastPlayed[1] + 1] === player && board[lastPlayed[0]][lastPlayed[1] + 2] === player && board[lastPlayed[0]][lastPlayed[1] + 3] === player) {
-        return `${player} wins`;
-      }
-    }
-    // 
-    if (board[lastPlayed[0]][lastPlayed[1] + 3] !== undefined && board[lastPlayed[0] + 3] !== undefined) {
-      if (board[lastPlayed[0] + 1][lastPlayed[1] + 1] === player && board[lastPlayed[0] + 2][lastPlayed[1] + 2] === player && board[lastPlayed[0] + 3][lastPlayed[1] + 3] === player) {
-        return `${player} wins`;
-      }
-    }
-    if (board[lastPlayed[0]][lastPlayed[1] - 3] !== undefined && board[lastPlayed[0] + 3] !== undefined) {
-      if (board[lastPlayed[0] + 1][lastPlayed[1] - 1] === player && board[lastPlayed[0] + 2][lastPlayed[1] - 2] === player && board[lastPlayed[0] + 3][lastPlayed[1] - 3] === player) {
-        return `${player} wins`;
-      }
-    }
-    else return false;
-  }
+// function checkWinner (board, lastPlayed, player) {
+//     // down
+//     if (board[lastPlayed[0] + 3] !== undefined) {
+//       if (board[lastPlayed[0] + 1][lastPlayed[1]] === player && board[lastPlayed[0] + 2][lastPlayed[1]] === player && board[lastPlayed[0] + 3][lastPlayed[1]] === player) {
+//         return `${player} wins`;
+//       }
+//     }
+//     // right
+//     if (board[lastPlayed[0]][lastPlayed[1] + 3] !== undefined) {
+//       if (board[lastPlayed[0]][lastPlayed[1] + 1] === player && board[lastPlayed[0]][lastPlayed[1] + 2] === player && board[lastPlayed[0]][lastPlayed[1] + 3] === player) {
+//         return `${player} wins`;
+//       }
+//     }
+//     // 
+//     if (board[lastPlayed[0]][lastPlayed[1] + 3] !== undefined && board[lastPlayed[0] + 3] !== undefined) {
+//       if (board[lastPlayed[0] + 1][lastPlayed[1] + 1] === player && board[lastPlayed[0] + 2][lastPlayed[1] + 2] === player && board[lastPlayed[0] + 3][lastPlayed[1] + 3] === player) {
+//         return `${player} wins`;
+//       }
+//     }
+//     if (board[lastPlayed[0]][lastPlayed[1] - 3] !== undefined && board[lastPlayed[0] + 3] !== undefined) {
+//       if (board[lastPlayed[0] + 1][lastPlayed[1] - 1] === player && board[lastPlayed[0] + 2][lastPlayed[1] - 2] === player && board[lastPlayed[0] + 3][lastPlayed[1] - 3] === player) {
+//         return `${player} wins`;
+//       }
+//     }
+//     else return false;
+//   }
 
 export default createStore(reducer);
