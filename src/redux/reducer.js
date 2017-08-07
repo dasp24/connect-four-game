@@ -5,7 +5,8 @@ import {
 import {
   ADD_DISK,
   CHANGE_PLAYER,
-  CHECK_WINNER
+  CHECK_WINNER,
+  RESET_GAME
 } from './actions'
 
 import {
@@ -47,7 +48,24 @@ export function reducer(state = initialState, action) {
     case CHECK_WINNER:
       {
         return (state.won === false) ? checkWinner({ ...state
-        }) : {...state}
+        }) : { ...state
+        }
+      }
+
+    case RESET_GAME:
+      return { ...state,
+        board: [
+          [null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null]
+        ],
+        player: 'x',
+        won: false,
+        changePlayer: true,
+        plays: 0
       }
 
     default:
@@ -55,6 +73,9 @@ export function reducer(state = initialState, action) {
   }
 }
 
+function resetState() {
+  return initialState;
+}
 
 
 export default createStore(reducer);

@@ -13,7 +13,7 @@ class Choice extends Component {
             margin: '15px',
             width: '5px',
             position: 'relative',
-            right: '24px',
+            right: '27px',
             };
         
     }

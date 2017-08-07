@@ -3,7 +3,7 @@ import {
 } from 'redux';
 
 import {reducer} from './reducer';
-import {ADD_DISK, CHANGE_PLAYER, CHECK_WINNER} from './actions';
+import {ADD_DISK, CHANGE_PLAYER, CHECK_WINNER, RESET_GAME} from './actions';
 
 export const addDisk = (column) => {
     return {
@@ -21,6 +21,12 @@ export const changePlayer = () => {
 export const checkWinner = () => {
     return {
         type: CHECK_WINNER
+    };
+};
+
+export const resetGame = () => {
+    return {
+        type: RESET_GAME
     };
 };
 

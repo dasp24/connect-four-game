@@ -14,7 +14,10 @@ export function addDisk(state, col) {
     newState.board[row][col] = state.player;
     newState.changePlayer = true;
     newState.plays++
-    if (newState.plays === 42) newState.won = 'It\'s a tie'
+    if (newState.plays === 42) {
+        newState.won = 'It\'s a tie';
+        newState.player = null;
+    }
     return newState;
 
 }
