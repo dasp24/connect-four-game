@@ -8,7 +8,11 @@ import {
   CHECK_WINNER
 } from './actions'
 
-import {addDisk, checkWinner, changePlayer} from './helperFuncs'
+import {
+  addDisk,
+  checkWinner,
+  changePlayer
+} from './helperFuncs'
 
 const initialState = {
   board: [
@@ -21,6 +25,7 @@ const initialState = {
   ],
   player: 'x',
   won: false,
+  changePlayer: true
 };
 
 export function reducer(state = initialState, action) {
@@ -35,13 +40,13 @@ export function reducer(state = initialState, action) {
     case CHANGE_PLAYER:
       return {
         ...state,
-        player: changePlayer(state.player, state.won)
+        player: (state.won === false && state.changePlayer === true) ? changePlayer(state.player, state.won, state.changePlayer) : state.player
       }
 
     case CHECK_WINNER:
-      return {
-        ...state,
-        won: (state.won === false) ? checkWinner(state.board, state.player, state.xPlayer, state.oPlayer) : state.won
+      {
+        return (state.won === false) ? checkWinner({ ...state
+        }) : state.won
       }
 
     default:
