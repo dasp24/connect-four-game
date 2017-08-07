@@ -13,6 +13,8 @@ export function addDisk(state, col) {
 
     newState.board[row][col] = state.player;
     newState.changePlayer = true;
+    newState.plays++
+    if (newState.plays === 42) newState.won = 'It\'s a tie'
     return newState;
 
 }
@@ -33,26 +35,26 @@ export function checkWinner(state) {
     while (positions.length >= 3) {
         if (board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1]] === player && board[currentPos[0] + 2][currentPos[1]] === player && board[currentPos[0] + 3][currentPos[1]] === player) {
-                newState.won = `${player} wins`;
+                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
                 return newState
             }
         }
 
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined) {
             if (board[currentPos[0]][currentPos[1] + 1] === player && board[currentPos[0]][currentPos[1] + 2] === player && board[currentPos[0]][currentPos[1] + 3] === player) {
-                newState.won = `${player} wins`;
+                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
                 return newState
             }
         }
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] + 1] === player && board[currentPos[0] + 2][currentPos[1] + 2] === player && board[currentPos[0] + 3][currentPos[1] + 3] === player) {
-                newState.won = `${player} wins`;
+                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
                 return newState
             }
         }
         if (board[currentPos[0]][currentPos[1] - 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] - 1] === player && board[currentPos[0] + 2][currentPos[1] - 2] === player && board[currentPos[0] + 3][currentPos[1] - 3] === player) {
-                newState.won = `${player} wins`;
+                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
                 return newState
             }
         }

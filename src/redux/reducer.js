@@ -25,7 +25,8 @@ const initialState = {
   ],
   player: 'x',
   won: false,
-  changePlayer: true
+  changePlayer: true,
+  plays: 0
 };
 
 export function reducer(state = initialState, action) {
@@ -46,7 +47,7 @@ export function reducer(state = initialState, action) {
     case CHECK_WINNER:
       {
         return (state.won === false) ? checkWinner({ ...state
-        }) : state.won
+        }) : {...state}
       }
 
     default:

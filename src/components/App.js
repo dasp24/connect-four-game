@@ -10,9 +10,9 @@ class App extends Component {
     return (
       <div className="App">
       <Title />
-      <Turn />
-      <Board />
       <Choice />
+      <Board />
+      <Turn />
       </div>
     );
   }

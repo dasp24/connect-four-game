@@ -20,12 +20,12 @@ class Board extends Component {
             case 'o':
                 return <div style={{...slotStyle, backgroundColor: 'yellow' }} />;
             default:
-                return <div style={{...slotStyle, backgroundColor: 'white' }} />;
+                return <div style={{...slotStyle, backgroundColor: '#D3D3D3' }} />;
         }
     }
 
   render() {
-    return this.props.won ? <span>{this.props.won}</span> : (
+    return this.props.won ? <h1>{this.props.won}</h1> : (
       <div className="Board">
         {this.props.visualBoard.map((row) => (
           <div>
