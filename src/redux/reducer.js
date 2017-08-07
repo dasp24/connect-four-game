@@ -40,7 +40,7 @@ export function reducer(state = initialState, action) {
     case CHANGE_PLAYER:
       return {
         ...state,
-        player: (state.won === false && state.changePlayer === true) ? changePlayer(state.player, state.won, state.changePlayer) : state.player
+        player: (state.won === false && state.changePlayer === true) ? changePlayer(state.player) : state.player
       }
 
     case CHECK_WINNER:
