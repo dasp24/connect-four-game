@@ -10,9 +10,9 @@ class Choice extends Component {
             display: 'inline-block',
             textdecoration: 'none',
             margin: '15px',
-            width: '10px'
+            width: '5px',
 
-            }
+            };
         
     }
      onClick(val) {
