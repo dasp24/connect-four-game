@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {style} from './App.css';
 
 const slotDimension = 20;
 const slotStyle = {
@@ -8,7 +9,7 @@ const slotStyle = {
     borderRadius: `${slotDimension / 2}px`,
     margin: '0 5px',
     display: 'inline-block',
-    border: '2px solid'
+    border: '2px solid green'
 };
 
 class Board extends Component {

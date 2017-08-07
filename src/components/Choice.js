@@ -11,6 +11,8 @@ class Choice extends Component {
             textdecoration: 'none',
             margin: '15px',
             width: '5px',
+            position: 'relative',
+            right: '24px'
 
             };
         

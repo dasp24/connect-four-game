@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  border: 2px solid;
+  width: 400px;
 }
 
 .App-header {
@@ -13,3 +15,9 @@
   font-size: large;
 }
 
+.Board {
+  border: 2px solid green;
+  display: inline-block;
+  padding: 5px;
+  
+}
