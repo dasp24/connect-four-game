@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 
 class Turn extends Component {
   render() {
-        if (this.props.player === null || this.props.won) return <h3>Game over</h3>;
-        else if (this.props.player === 'x') return <h3>Reds turn</h3>;
-        else if (this.props.player === 'o') return <h3>Yellows turn</h3>;
+        if (this.props.player === null || this.props.won) return <h2>Game over</h2>;
+        else if (this.props.player === 'x') return <h3>Red to go!</h3>;
+        else if (this.props.player === 'o') return <h3>Yellow to go!</h3>;
     ;
   }
 }

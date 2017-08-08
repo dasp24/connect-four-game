@@ -31,6 +31,18 @@
 	border-radius: 10px;
 }
 
+.Title h1{
+  color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0;
+}
+
+ h1{
+  color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0;
+}
+
+h2{
+   color: #ff4411; font-size: 48px; font-family: 'Signika', sans-serif; padding-bottom: 10px;
+}
+
 #again {
     position: absolute;
     left: 160px;
