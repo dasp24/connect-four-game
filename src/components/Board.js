@@ -25,7 +25,7 @@ class Board extends Component {
     }
 
   render() {
-    return this.props.won ? <h1>{this.props.won}</h1> : (
+    return (
       <div className="Board">
         {this.props.visualBoard.map((row) => (
           <div>
