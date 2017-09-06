@@ -1,32 +1,28 @@
-export function addDisk(state, col) {
-    const newState = { ...state
-    }
-    if (newState.won !== false) return newState
+function addDisk(state, col) {
+    if (state.won !== false) return state
     let row = 5;
-    while (newState.board[row][col] !== null) {
+    while (state.board[row][col] !== null) {
         row--;
         if (row < 0) {
-            newState.changePlayer = false;
-            return newState;
+            state.changePlayer = false;
+            return state;
         }
     }
 
-    newState.board[row][col] = state.player;
-    newState.changePlayer = true;
-    newState.plays++
-    if (newState.plays === 42) {
-        newState.won = 'It\'s a tie';
-        newState.player = null;
+    state.board[row][col] = state.player;
+    state.changePlayer = true;
+    state.plays++
+    if (state.plays === 42) {
+        state.won = 'It\'s a tie';
+        state.player = null;
     }
-    return newState;
+    return state;
 
 }
 
-export function checkWinner(state) {
-    const newState = { ...state
-    }
-    const board = newState.board
-    const player = newState.player
+function checkWinner(state) {
+    const board = state.board;
+    const player = state.player;
     const positions = [];
     board.forEach((line, index) => {
         line.forEach((item, jindex) => {
@@ -38,37 +34,43 @@ export function checkWinner(state) {
     while (positions.length >= 3) {
         if (board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1]] === player && board[currentPos[0] + 2][currentPos[1]] === player && board[currentPos[0] + 3][currentPos[1]] === player) {
-                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return newState
+                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                return state;
             }
         }
 
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined) {
             if (board[currentPos[0]][currentPos[1] + 1] === player && board[currentPos[0]][currentPos[1] + 2] === player && board[currentPos[0]][currentPos[1] + 3] === player) {
-                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return newState
+                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                return state
             }
         }
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] + 1] === player && board[currentPos[0] + 2][currentPos[1] + 2] === player && board[currentPos[0] + 3][currentPos[1] + 3] === player) {
-                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return newState
+                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                return state
             }
         }
         if (board[currentPos[0]][currentPos[1] - 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] - 1] === player && board[currentPos[0] + 2][currentPos[1] - 2] === player && board[currentPos[0] + 3][currentPos[1] - 3] === player) {
-                newState.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return newState
+                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                return state
             }
         }
         currentPos = positions.shift();
     } 
-        newState.won = false;
-        return newState
+        state.won = false;
+        return state
     
 }
 
-export function changePlayer(player) {
+function changePlayer(player) {
     player = (player === 'x') ? 'o' : 'x';
     return player;
 }
+
+module.exports = {
+    changePlayer, 
+    checkWinner,
+    addDisk
+};
