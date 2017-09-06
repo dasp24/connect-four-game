@@ -43,6 +43,8 @@ describe('connect-4 game', () => {
       changePlayer: true,
       plays: 0
     };
+    expect(changePlayer('o')).to.equal('x');
+    expect(changePlayer('x')).to.equal('o');
     expect(changePlayer(State.player)).to.equal('o');
   });
 });
