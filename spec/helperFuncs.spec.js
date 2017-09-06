@@ -116,4 +116,37 @@ describe('connect-4 game', () => {
     ];
     expect(addDisk(State2,0).board).to.eql(result2);
   });
+  it('game works correctly', () => {
+    const State = {
+      board: [
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, 'x', null, null, null],
+        [null, null, 'x', null, null, null, null],
+        [null, 'x', null, null, null, null, null],
+        ['x', null, null, null, null, null, null]
+      ],
+      player: 'x',
+      won: false,
+      changePlayer: true,
+      plays: 0
+    };  
+    expect(checkWinner(State).won).to.equal('Red Wins');
+    const State2 = {
+      board: [
+        ['o', null, null, null, null, null, null],
+        ['x', null, null, null, null, null, null],
+        ['o', null, null, 'x', null, null, null],
+        ['x', null, 'o', null, null, null, null],
+        ['o', 'x', null, null, null, null, null],
+        ['x', null, null, null, null, null, null]
+      ],
+      player: 'x',
+      won: false,
+      changePlayer: true,
+      plays: 0
+    };  
+    expect(changePlayer(State2)).to.eql('x');
+    expect(addDisk(State2,0)).to.equal(State2);
+  });
 });
