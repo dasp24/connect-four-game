@@ -73,9 +73,5 @@ export function reducer(state = initialState, action) {
   }
 }
 
-function resetState() {
-  return initialState;
-}
-
 
 export default createStore(reducer);
