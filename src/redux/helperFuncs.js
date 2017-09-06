@@ -42,25 +42,25 @@ function checkWinner(state) {
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined) {
             if (board[currentPos[0]][currentPos[1] + 1] === player && board[currentPos[0]][currentPos[1] + 2] === player && board[currentPos[0]][currentPos[1] + 3] === player) {
                 state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return state
+                return state;
             }
         }
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] + 1] === player && board[currentPos[0] + 2][currentPos[1] + 2] === player && board[currentPos[0] + 3][currentPos[1] + 3] === player) {
                 state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return state
+                return state;
             }
         }
         if (board[currentPos[0]][currentPos[1] - 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] - 1] === player && board[currentPos[0] + 2][currentPos[1] - 2] === player && board[currentPos[0] + 3][currentPos[1] - 3] === player) {
                 state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
-                return state
+                return state;
             }
         }
         currentPos = positions.shift();
     } 
         state.won = false;
-        return state
+        return state;
     
 }
 
