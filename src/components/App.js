@@ -3,7 +3,6 @@ import Title from './Title';
 import Turn from './Turn';
 import Board from './Board';
 import Choice from './Choice';
-import Again from './Again';
 import style from './App.css';
 
 class App extends Component {
@@ -16,7 +15,6 @@ class App extends Component {
           <Board />
           <Turn />
           </div>
-        <Again />
       </div>
     );
   }
