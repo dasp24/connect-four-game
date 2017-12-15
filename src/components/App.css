@@ -45,7 +45,7 @@ h2{
 }
 
 h3 {
-  font-family: 'Frijole', cursive;
+  font-family: 'Mountains of Christmas', cursive;
 }
 
 #again {
@@ -55,4 +55,14 @@ h3 {
     margin:10px;
     width: 80px;
     background-color: orange;
+}
+#santaPiece {
+  background-image: url(http://bit.ly/2ArkF73);
+  background-size: contain;
+  background-color: lightgreen;
+}
+#grinchPiece {  
+  background-image: url(http://bit.ly/2kuFMyE);
+  background-size: contain;
+  background-color: lightgreen;
 }
