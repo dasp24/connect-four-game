@@ -10,10 +10,10 @@ class Choice extends Component {
         this.style = {
             display: 'inline-block',
             textdecoration: 'none',
-            margin: '15px',
+            margin: '20px',
             width: '5px',
             position: 'relative',
-            right: '27px',
+            right: '30px'
             };
         
     }
