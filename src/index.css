@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: teal;
+  background-image: url(http://bit.ly/2zeMMZ9);  
+  background-size: contain;
 }
 
 #music{

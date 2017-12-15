@@ -1,9 +1,9 @@
 .App {
-  text-align: center;
-  border: 2px solid;
+  text-align: center;   
   width: 400px;
+  margin: auto;
+  margin-top: 5%;
 }
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -19,19 +19,17 @@
   border: 2px solid green;
   display: inline-block;
   padding: 5px;
-  box-shadow: 10px -10px 5px grey;
-  background-color: blue;
+  background-color: red;
 }
 
 .button {
-  background-color: white;
+  background-color: teal;
   width: 30px;
 	height: 30px;
   background-image: url(http://bit.ly/2AtOWCh);
   border: 0;
   background-size: contain;
 }
-
 .Title h1{
   color: #7c795d; font-family: 'Mountains of Christmas', cursive; font-size: 45px; font-weight: normal; font-size: 35px; line-height: 48px; margin: 0;
 }

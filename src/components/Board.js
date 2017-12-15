@@ -9,7 +9,7 @@ const slotStyle = {
     borderRadius: `${slotDimension / 2}px`,
     margin: '0 5px',
     display: 'inline-block',
-    border: '2px solid green'
+    border: '2px solid black'    
 };
 
 class Board extends Component {
@@ -20,7 +20,7 @@ class Board extends Component {
             case 'o':
                 return <div id='grinchPiece' style={{...slotStyle, backgroundColor: 'green' }} />;
             default:
-                return <div style={{...slotStyle, backgroundColor: '#D3D3D3' }} />;
+                return <div style={{...slotStyle, backgroundColor: 'teal' }} />;
         }
     }
 
