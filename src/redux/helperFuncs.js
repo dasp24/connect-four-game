@@ -34,26 +34,26 @@ function checkWinner(state) {
     while (positions.length >= 3) {
         if (board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1]] === player && board[currentPos[0] + 2][currentPos[1]] === player && board[currentPos[0] + 3][currentPos[1]] === player) {
-                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                state.won = (player === 'x') ? 'Santa Wins' : 'The Grinch Wins';
                 return state;
             }
         }
 
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined) {
             if (board[currentPos[0]][currentPos[1] + 1] === player && board[currentPos[0]][currentPos[1] + 2] === player && board[currentPos[0]][currentPos[1] + 3] === player) {
-                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                state.won = (player === 'x') ? 'Santa Wins' : 'The Grinch Wins';
                 return state;
             }
         }
         if (board[currentPos[0]][currentPos[1] + 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] + 1] === player && board[currentPos[0] + 2][currentPos[1] + 2] === player && board[currentPos[0] + 3][currentPos[1] + 3] === player) {
-                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                state.won = (player === 'x') ? 'Santa Wins' : 'The Grinch Wins';
                 return state;
             }
         }
         if (board[currentPos[0]][currentPos[1] - 3] !== undefined && board[currentPos[0] + 3] !== undefined) {
             if (board[currentPos[0] + 1][currentPos[1] - 1] === player && board[currentPos[0] + 2][currentPos[1] - 2] === player && board[currentPos[0] + 3][currentPos[1] - 3] === player) {
-                state.won = (player === 'x') ? 'Red Wins' : 'Yellow Wins';
+                state.won = (player === 'x') ? 'Santa Wins' : 'The Grinch Wins';
                 return state;
             }
         }

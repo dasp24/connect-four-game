@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {style} from './App.css';
+import {style, santa} from './App.css';
 
-const slotDimension = 20;
+const slotDimension = 30;
 const slotStyle = {
     width: `${slotDimension}px`,
     height: `${slotDimension}px`,
@@ -16,9 +16,9 @@ class Board extends Component {
     renderSlot(slot) {
         switch (slot) {
             case 'x':
-                return <div style={{...slotStyle, backgroundColor: 'red' }} />;
+                 return <div id='santaPiece' style={{...slotStyle,  }} />;            
             case 'o':
-                return <div style={{...slotStyle, backgroundColor: 'yellow' }} />;
+                return <div id='grinchPiece' style={{...slotStyle, backgroundColor: 'green' }} />;
             default:
                 return <div style={{...slotStyle, backgroundColor: '#D3D3D3' }} />;
         }
