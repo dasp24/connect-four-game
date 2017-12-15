@@ -24,12 +24,12 @@
 }
 
 .button {
-  width: 20px;
-	height: 20px;
-	background: #009900;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
+  background-color: white;
+  width: 30px;
+	height: 30px;
+  background-image: url(http://bit.ly/2AtOWCh);
+  border: 0;
+  background-size: contain;
 }
 
 .Title h1{
